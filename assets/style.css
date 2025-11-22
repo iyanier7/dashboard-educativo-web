@@ -1,91 +1,226 @@
-/* --------------------------- */
-/*   TEMA VERDE – DASHBOARD    */
-/* --------------------------- */
+/* -----------------------------------------------------------------
+   ESTILO: CLEAN LIGHT PROFESSIONAL
+   ----------------------------------------------------------------- */
 
 :root {
-    --verde: #43A047;
-    --verde-claro: #C8E6C9;
-    --gris: #F5F5F5;
-    --gris-oscuro: #333;
-    --blanco: #FFFFFF;
+    --bg-body: #f0f2f5;       /* Gris muy suave para el fondo general */
+    --bg-sidebar: #ffffff;    /* Blanco puro para sidebar */
+    --bg-card: #ffffff;       /* Blanco puro para tarjetas */
+    --text-main: #1e293b;     /* Azul muy oscuro (casi negro) para texto */
+    --text-muted: #64748b;    /* Gris medio para textos secundarios */
+    --accent: #0ea5e9;        /* Azul cielo vibrante para acentos */
+    --accent-hover: #0284c7;
+    --border-color: #e2e8f0;  /* Gris muy claro para bordes */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-/* --------------------------- */
-/*       SIDEBAR MODERNO       */
-/* --------------------------- */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
 
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-body); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* -----------------------------------------------------------------
+   SIDEBAR
+   ----------------------------------------------------------------- */
 #sidebar {
     position: fixed;
     top: 0;
-    left: -260px;
-    width: 260px;
-    height: 100%;
-    background-color: var(--verde);
-    color: white;
-    padding: 20px;
-    transition: left 0.3s ease;
-    z-index: 10;
+    left: -280px;
+    bottom: 0;
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.05); /* Sombra suave */
 }
 
-#sidebar.open {
-    left: 0;
-}
+#sidebar.open { left: 0; }
 
 .sidebar-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: var(--accent);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
 }
 
+/* Labels en Sidebar */
+#sidebar label {
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Ajuste de Dropdowns para tema CLARO */
+.Select-control {
+    background-color: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+}
+.Select-value-label { color: var(--text-main) !important; }
+.Select-placeholder { color: var(--text-muted) !important; }
+.Select-menu-outer {
+    background-color: white !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow);
+}
+.Select-option {
+    background-color: white !important;
+    color: var(--text-main) !important;
+}
+.Select-option:hover {
+    background-color: #f1f5f9 !important;
+}
+
+/* Radio Items */
+#sidebar input[type="radio"] {
+    accent-color: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Botón Toggle Flotante */
 .sidebar-btn {
     position: fixed;
     top: 20px;
     left: 20px;
-    background-color: var(--verde);
-    border: none;
-    padding: 10px 15px;
-    color: white;
-    font-size: 18px;
+    background: var(--bg-card); /* Blanco */
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    font-size: 1.5rem;
     cursor: pointer;
-    z-index: 20;
-    border-radius: 8px;
+    z-index: 1100;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.05);
 }
 
-/* --------------------------- */
-/*        TARJETAS KPI         */
-/* --------------------------- */
+/* -----------------------------------------------------------------
+   CONTENIDO PRINCIPAL
+   ----------------------------------------------------------------- */
+#main-content {
+    padding: 30px;
+    transition: margin-left 0.4s ease;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+/* -----------------------------------------------------------------
+   KPI CARDS
+   ----------------------------------------------------------------- */
+#kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
 
 .kpi-card {
-    background-color: var(--verde-claro);
-    border-left: 8px solid var(--verde);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    color: var(--gris-oscuro);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15); /* Sombra azulada */
+    border-color: var(--accent);
 }
 
 .kpi-title {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .kpi-value {
-    font-size: 26px;
-    margin-top: 5px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    /* Degradado sutil azul */
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* --------------------------- */
-/*          FOOTER             */
-/* --------------------------- */
+/* -----------------------------------------------------------------
+   TABS Y CONTENIDO
+   ----------------------------------------------------------------- */
+#tabs {
+    margin-top: 20px;
+}
 
+.custom-tab {
+    background-color: #f1f5f9 !important; /* Gris muy claro */
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border-color) !important;
+    border-bottom: none !important;
+    padding: 15px !important;
+    font-size: 1rem;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.custom-tab--selected {
+    background-color: white !important;
+    color: var(--accent) !important;
+    border-top: 3px solid var(--accent) !important;
+    font-weight: 800;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+}
+
+#tab-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 16px 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    min-height: 400px;
+}
+
+/* Footer */
 .footer {
-    background-color: var(--gris);
+    margin-top: 60px;
     text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    color: var(--gris-oscuro);
-    border-top: 2px solid var(--verde);
-    font-size: 14px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
 }
+    
 
