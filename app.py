@@ -1,4 +1,4 @@
-import os
+import os 
 from dash import Dash, dcc, html, Input, Output, State
 import dash_bootstrap_components as dbc
 import plotly.express as px
@@ -214,5 +214,7 @@ def update_dashboard(filtro_ano, filtro_dep, filtro_genero, active_tab):
 
     return kpis, content
 
+port = int(os.environ.get("PORT", 8050)) 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=port)
