@@ -214,7 +214,7 @@ def update_dashboard(filtro_ano, filtro_dep, filtro_genero, active_tab):
 
     return kpis, content
 
-port = int(os.environ.get("PORT", 8050)) 
+port = int(os.environ.get("PORT", 8080)) 
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=port)
