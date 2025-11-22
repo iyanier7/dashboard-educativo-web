@@ -63,7 +63,7 @@ app.layout = html.Div([
     html.Button("☰", id="toggle-sidebar", className="sidebar-btn"),
 
     html.Div(id="sidebar", children=[
-        html.Div("ANALYTICS PRO", className="sidebar-title"),
+        html.Div("Menu de filtros", className="sidebar-title"),
         
         html.Label("📅 AÑO"),
         dcc.Dropdown(id="filtro_ano", 
