@@ -1,3 +1,91 @@
-.titulo {text-align:center; margin-top:20px; color:#003366;}
-.kpi {background:#e8f0ff; text-align:center; padding:15px; border-radius:12px; box-shadow:0 0 5px #aaa;}
-.conclusiones {padding:15px; background:#f4faff; border-left:5px solid #003366; font-size:18px;}
+/* --------------------------- */
+/*   TEMA VERDE – DASHBOARD    */
+/* --------------------------- */
+
+:root {
+    --verde: #43A047;
+    --verde-claro: #C8E6C9;
+    --gris: #F5F5F5;
+    --gris-oscuro: #333;
+    --blanco: #FFFFFF;
+}
+
+/* --------------------------- */
+/*       SIDEBAR MODERNO       */
+/* --------------------------- */
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: var(--verde);
+    color: white;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+#sidebar.open {
+    left: 0;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--verde);
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 8px;
+}
+
+/* --------------------------- */
+/*        TARJETAS KPI         */
+/* --------------------------- */
+
+.kpi-card {
+    background-color: var(--verde-claro);
+    border-left: 8px solid var(--verde);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: var(--gris-oscuro);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.kpi-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.kpi-value {
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+/* --------------------------- */
+/*          FOOTER             */
+/* --------------------------- */
+
+.footer {
+    background-color: var(--gris);
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    color: var(--gris-oscuro);
+    border-top: 2px solid var(--verde);
+    font-size: 14px;
+}
+
